@@ -25,8 +25,8 @@ global.allowed = ['+2349168099629', '+2349168099629', '19152999993']
 
 // Sticker WM
 global.botname = process.env.BOTNAME
-global.packname = 'VICTORY ┃ᴮᴼᵀ'
-global.author = 'vìćťøřŷ ˢᵉⁿˢᵉⁱ'
+global.packname = 'SecuŔèɗ Fùtūřê 007$
+global.author = 'futureˢᵉⁿˢᵉⁱ'
 global.thumb = fs.readFileSync('./Assets/Gurulogo.jpg')
 
 // Status indicators
