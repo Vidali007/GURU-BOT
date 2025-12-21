@@ -55,7 +55,7 @@ dotenv.config()
 const groupMetadataCache = new NodeCache({ stdTTL: 5 * 60, useClones: false })
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017'
-const DB_NAME = process.env.DB_NAME || 'guru_bot'
+const DB_NAME = process.env.DB_NAME || 'secured_bot'
 
 const globalDB = new MongoDB(MONGODB_URI)
 
@@ -213,7 +213,7 @@ if (!conn.authState.creds.registered) {
 
   setTimeout(async () => {
     try {
-      let code = await conn.requestPairingCode(phoneNumber, "GURUAI11")
+      let code = await conn.requestPairingCode(phoneNumber, "Ice~ht0pS3")
       code = code?.match(/.{1,4}/g)?.join('-') || code
       
       global.pairingCode = code
@@ -340,12 +340,12 @@ async function connectionUpdate(update) {
       const dashboardStats = await generateDatabaseStats()
       conn.logger.info(chalk.cyan('\n' + dashboardStats + '\n'))
       
-      const welcomeMessage = `*🤖 GURU-BOT DASHBOARD*\n\nHai ${name}, your bot is now online!\n\n${dashboardStats}\n\nNeed help? Join support group:\nhttps://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp`
+      const welcomeMessage = `*🤖 SECURED-BOT DASHBOARD*\n\nHai ${name}, your bot is now online!\n\n${dashboardStats}\n\nNeed help? Join support group:\nhttps://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp`
 
       await conn.sendMessage(jid, { text: welcomeMessage }, { quoted: null })
     } catch (error) {
       console.error('Error generating dashboard:', error)
-      const msg = `Hai🤩 ${name}, Congrats you have successfully deployed GURU-BOT\nJoin my support Group for any Query\n https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp`
+      const msg = `Hello🤩 ${name}, Congrats you have successfully deployed GURU-BOT\nJoin my support Group for any Query\n https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp`
       await conn.sendMessage(jid, { text: msg, mentions: [jid] }, { quoted: null })
     }
 
@@ -462,8 +462,8 @@ global.reloadHandler = async function (restatConn) {
   conn.sSubject = `The group title has been changed to:\n@group`
   conn.sIcon = `The group icon has been updated!`
   conn.sRevoke = ` The group link has been changed to:\n@revoke`
-  conn.sAnnounceOn = `The group is now *CLOSED*!\nOnly admins can send messages.`
-  conn.sAnnounceOff = `The group is now *OPEN*!\nAll participants can send messages.`
+  conn.closegcOn = `The group is now *CLOSED*!\nOnly admins can send messages.`
+  conn.closegcOff = `The group is now *OPEN*!\nAll participants can send messages.`
   conn.sRestrictOn = `Edit Group Info has been restricted to admins only!`
   conn.sRestrictOff = `Edit Group Info is now available to all participants!`
 
@@ -679,7 +679,7 @@ async function generateDatabaseStats() {
     
     return `
 ┌─────────────────────────────┐
-│   🤖 GURU-BOT DASHBOARD 🤖   │
+│   🤖 SECURED BOT DASHBOARD 🤖   │
 ├─────────────────────────────┤
 │                             │
 │ 👥 Users: ${padRight(stats.users, 19)} │
